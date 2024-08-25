@@ -21,7 +21,9 @@ If you're unhappy with other aspects of GNOME Search's algorithm this extension 
 
 ## Install
 
-TODO
+### Install from extensions.gnome.org
+
+Go to the [GNOME Extensions page for this extension](https://extensions.gnome.org/extension/7269/bilingual-app-search/) and click on the install button.
 
 ## How it works
 
