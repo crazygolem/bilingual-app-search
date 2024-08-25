@@ -1,0 +1,9 @@
+{
+  "name": "Bilingual App Search",
+  "description": "Make GNOME Search look up applications in both English and your system's locale.",
+  "uuid": "bilingual-app-search@pwa.lu",
+  "shell-version": [
+    "46"
+  ],
+  "url": "https://github.com/crazygolem/bilingual-app-search"
+}
