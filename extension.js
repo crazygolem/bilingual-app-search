@@ -123,12 +123,14 @@ export default class BilingualAppSearch extends Extension {
     // upstream. They should get initialized in the same way as in upstream.
     #_appSys
     #_parentalControlsManager
+    #_parentalControlsManagerInitializedIds
     #_systemActions
 
     enable() {
         this.#index = new Index()
 
         this.#_appSys = Shell.AppSystem.get_default()
+        this.#_parentalControlsManagerInitializedIds = []
         this.#_parentalControlsManager = ParentalControlsManager.getDefault()
         this.#_systemActions = new SystemActions.getDefault()
 
@@ -144,6 +146,9 @@ export default class BilingualAppSearch extends Extension {
         this.#originalFn = null
 
         this.#_systemActions = null
+        this.#_parentalControlsManagerInitializedIds.forEach(
+            handlerId => this.#_parentalControlsManager.disconnect(handlerId))
+        this.#_parentalControlsManagerInitializedIds = null
         this.#_parentalControlsManager = null
         this.#_appSys = null
 
@@ -154,6 +159,7 @@ export default class BilingualAppSearch extends Extension {
     // Lifted from AppDisplay.AppSearchProvider.prototype.getInitialResultSet,
     // the only changes are:
     // - how the `groups` variable gets populated
+    // - bookkeeping to meet extra requirements for extensions
     // - uses local versions of various objects to be more robust against
     //   upstram changes
     //
@@ -169,6 +175,7 @@ export default class BilingualAppSearch extends Extension {
                         resolve(await this.#getInitialResultSet(terms, cancellable));
                     }
                 });
+                this.#_parentalControlsManagerInitializedIds.push(initializedId);
             });
         }
 
