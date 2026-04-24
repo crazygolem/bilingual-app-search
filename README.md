@@ -1,3 +1,12 @@
+<p align="center">
+  <img alt="" src="./resources/logo.svg" />
+</p>
+<p align="center">
+  <a href="https://extensions.gnome.org/extension/7269/bilingual-app-search/">
+    <img alt="Get it on GNOME Extensions" src="https://img.shields.io/gnome-extensions/dt/bilingual-app-search%40pwa.lu?style=for-the-badge&logo=gnome&logoColor=white&label=Get%20it%20on%20GNOME%20Extensions&labelColor=blue&color=gray">
+  </a>
+</p>
+
 A GNOME extension to make GNOME Search look up applications using their default locale (usually English) in addition to your configured system locale.
 
 This is basically a workaround until the GNOME issue [#443 (Search for applications in both English and local language.)](https://gitlab.gnome.org/GNOME/glib/-/issues/443) gets finally resolved.
